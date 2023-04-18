@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <div class="container_all">
+    <div class="conteiner">
+    <div class="cont_form">
+        <div class="icon"><img src="{% static 'images/iconoproyecto.png' %}" alt=""></div>
+        <div class="name_proyect"><p>DriveNow</p></div>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;"><form action="/signin/" method="POST" class="form">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="error">{{error}}</div>
+        <button>
+            Signin
+        </button>
+        </form>
+    </div>
+    <div class="images-login">
+        <div class="google"><img src="{% static 'images/google.png' %}" alt=""></div>
+        <div class="microsoft"><img src="{% static 'images/microsoft.png' %}" alt=""></div>
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
