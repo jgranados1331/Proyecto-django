@@ -10,11 +10,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
-    <link type="text/css" rel="stylesheet" href="{% static 'estilo.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
 <body>
-    <div class="conteiner">
-    <p class="titulo">Tasks</p>
+    <div class="conteiner-tasks">
+        <div class="frame">
+            <ul>
+                <li><img src="{% static 'images/slide/audi.jpg'%}" alt=""></li>
+                <li><img src="{% static 'images/slide/bmw.jpg' %}" alt=""></li>
+                <li><img src="{% static 'images/slide/mazdarx.jpg' %}" alt=""></li>
+                <li><img src="{% static 'images/slide/mercedes.jpg' %}" alt=""></li>
+            </ul>
+        </div>
+        <div class="conteiner-text">
+            <div class="text-task"><p style="font-size: 40px; color: white; margin-bottom: 10px; ">A TU ALCANCE</p></div>
+            <div class="text-task"><p style="font-size: 60px; color: white; font-weight: 700; margin-bottom: 8%;">YA PUEDES RENTAR TU VEHICULO</p></div>
+            <div><div class="button-task">VAMOS POR LA AVENTURA!</div></div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

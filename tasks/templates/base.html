@@ -5,35 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django CRUD app </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
 </head>
 <body>
 
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/tasks">tasks</a>
-            </li>
+    <nav class="cont-menu">
+        <div class="menu">
+            <div class="circule">
+            </div>
+            <div>
+                <a href="/">Inicio</a>
+            </div>
+            <div>
+                <a href="#">Perfil</a>
+            </div>
+            <div>
+                <a href="#">Servicios</a>
+            </div>
+            <div>
+                <a href="#">Planes</a>
+            </div>
+            <div>
+                <a href="#">Contacto</a>
+            </div>
+            <div>
+                <a href="/tasks">Tasks</a>
+            </div>
             
             {% if user.is_authenticated %}
-            <li>
-                <a href="/logout">Logout</a>
-            </li>
+            <div class="logout">
+                <a href="/logout"><img src="{% static 'images/cerrar-sesion.png' %}" alt=""></a>
+            </div>
 
             {% else %}
 
-            <li>
+            <div>
                 <a href="/signup">Signup</a>
-            </li>
-            <li>
+            </div>
+            <div>
                 <a href="/signin">Signin</a>
-            </li>
+            </div>
 
             {% endif %}
 
-        </ul>
+        </div>
     </nav>
     
     {% block content %}
