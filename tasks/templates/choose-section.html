@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <div class="conteiner-all-choose">
+        <p class="title-select">SELECCIONE SU VEHICULO</p>
+        <div class="bike-division">
+            <div class="text-choose">
+                <div class="title-choose">Motocicleta</div>
+                <div class="description-choose">Disfruta de un increíble paseo por la ciudad con nuestros diferentes tipos de motocicletas</div>
+            </div>
+        </div>
+        <div class="car-division">
+            <div class="text-choose">
+                <div class="title-choose">Automovil</div>
+                <div class="description-choose">Deja de tomar el transporte publico, lo que necesitas es un automovil para simplificar la vida</div>
+            </div>
+        </div>
+        <div class="suv-division">
+            <div class="text-choose">
+                <div class="title-choose">Camioneta</div>
+                <div class="description-choose">Con que de viaje, eh? Si necesitas comodidad contamos con diferentes tipos de camionetas para toda necesidad </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

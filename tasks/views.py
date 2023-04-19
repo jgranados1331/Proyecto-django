@@ -56,3 +56,6 @@ def signin(request):
         else:
             login(request, user)
             return redirect('tasks')
+
+def choose(request):
+    return render(request, 'choose-section.html')
