@@ -61,4 +61,9 @@ def choose(request):
             return render(request, 'choose-section.html')
         else:
             return render(request, 'home.html')
-   
+        
+def grid(request):
+    if request.user.is_authenticated:
+        return render(request, 'grid-store.html')
+    else:
+        return render(request, 'home.html')
