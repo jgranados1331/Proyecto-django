@@ -16,7 +16,7 @@
             <div class="title-signup">DRIVENOW</div>
             <div class="signup"><form action="/signup/" method="POST">{{form.as_p}}
                 {% csrf_token %}
-                <div style="color: red;">{{error}}</div>
+                <div style="color: red; text-align: center; font-size: 22px; font-weight: 700;">{{error}}</div>
                 <div class="button-signup">
                     <button>
                         Signup
