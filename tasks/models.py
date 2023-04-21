@@ -32,9 +32,9 @@ class Vehiculo(models.Model):
     nombre=models.CharField(max_length=30, unique=True, null=False)
     marca=models.ForeignKey(Marca, on_delete=models.CASCADE)
     categoria=models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    caballos=models.IntegerField(max_length=10)
+    caballos=models.IntegerField
     motor=models.CharField(max_length=40)
-    precio=models.IntegerField(max_length=8)
+    precio=models.IntegerField
     Imagen=models.ImageField(upload_to='posts/%Y/%m/%d', null=False)
 
     def __str__(self):
