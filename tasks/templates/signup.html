@@ -1,15 +1,33 @@
-{% extends 'base.html' %}
 
-{% block content %}
-<h1>Signup</h1>
-
-{{error}}
-
-<form action="/signup/" method="POST">{{form.as_p}}
-    {% csrf_token %}
-    <button>
-        Signup
-    </button>
-</form>
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <div class="conteiner-all-signup">
+        <div class="conteiner-color-home">
+            <div><img src="{% static 'images/iconoproyectosmall.png' %}" alt=""></div>
+            <div class="title-signup">DRIVENOW</div>
+            <div class="signup"><form action="/signup/" method="POST">{{form.as_p}}
+                {% csrf_token %}
+                <div style="color: red;">{{error}}</div>
+                <div class="button-signup">
+                    <button>
+                        Signup
+                    </button>
+                </div>
+                    
+                </form>
+            </div>
+        </div>
+        <div class="conteiner-none"></div>
+    </div>
+    
+</body>
+</html>

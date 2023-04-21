@@ -2,6 +2,27 @@
 
 
 {% block content %}
-<h1>home</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis voluptas nisi, quaerat fuga numquam rem dicta esse. Quibusdam expedita quisquam exercitationem dolore sunt nesciunt eum rerum eveniet corporis magni vel quod odit, laboriosam tempora eaque nulla ipsam officia tenetur modi sed quidem perspiciatis et culpa voluptas? Officia in, molestias exercitationem nesciunt quod impedit sint ratione voluptatum perferendis consequatur, quo nam quasi velit nihil qui ipsa iusto repellat! Rerum vitae officia ipsam? Necessitatibus est ad rem id, mollitia asperiores facere maiores facilis quidem ipsam optio eius sit ipsum minima ducimus voluptatibus in eos deleniti aliquid. Commodi sed quam officiis quasi dignissimos?</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <div class="conteiner-all-home">
+        <div class="conteiner-color-home">
+            <div class="conteiner-text-home">
+                <div><img src="{% static 'images/iconoproyecto.png'%}" alt=""></div>
+                <div class="drive-home">DRIVENOW</div>
+                <div class="des-home">RENTA TU VEHICULO YA</div>
+            </div>
+            <div class="button-home"><a href="/tasks"><button>Inicia ahora</button></a></div>
+        </div>
+    </div>
+</body>
+</html>
 {% endblock %}

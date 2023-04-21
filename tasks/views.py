@@ -11,7 +11,6 @@ def home(request):
 
 def signup(request):
 
-
     if request.method == 'GET':
         return render(request, 'signup.html', {
             'form': UserCreationForm
@@ -58,4 +57,8 @@ def signin(request):
             return redirect('tasks')
 
 def choose(request):
-    return render(request, 'choose-section.html')
+        if request.user.is_authenticated:
+            return render(request, 'choose-section.html')
+        else:
+            return render(request, 'home.html')
+   
