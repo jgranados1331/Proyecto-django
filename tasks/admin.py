@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Taks, Categoria, Vehiculo, Marca
+from .models import Taks, Categoria, Vehiculo, Marca,subcategoria
 
 
 class TaskAdmin(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class TaskAdmin(admin.ModelAdmin):
 admin.site.register(Categoria)
 admin.site.register(Vehiculo)
 admin.site.register(Marca)
+admin.site.register(subcategoria)
