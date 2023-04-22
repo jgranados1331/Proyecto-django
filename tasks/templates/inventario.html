@@ -1,0 +1,22 @@
+
+{% load static %}
+<table>
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Motor</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for inventario in inventario %}
+      <tr>
+        <td>{{ inventario.nombre }}</td>
+        <td>{{ inventario.motor }}</td>
+        <td>{{ inventario.precio }}</td>
+        <td><img src="../{{ inventario.Imagen.url }}" alt="{{ inventario.Imagen }}"></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
