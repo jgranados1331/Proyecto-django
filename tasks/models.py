@@ -23,11 +23,14 @@ class Categoria(models.Model):
 
 
 class subcategoria(models.Model):
-    Nombre=models.CharField(max_length=20, unique=True, null=False)
+    Nombre=models.CharField(max_length=20, null=False)
     categoria=models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.Nombre +  '-by-'  +  self.categoria.nombre
+
 class Marca(models.Model):
-    nombre=models.CharField(max_length=10, unique=True, null=False)
+    nombre=models.CharField(max_length=30, unique=True, null=False)
     
 
     def __str__(self):
