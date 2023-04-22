@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.db import IntegrityError
+from .models import Vehiculo
 
 # Create your views here.
 
@@ -67,3 +68,8 @@ def grid(request):
         return render(request, 'grid-store.html')
     else:
         return render(request, 'home.html')
+    
+def inventario(request):
+    inventario=Vehiculo.objects.all()
+    context = {'inventario':inventario}
+    return render(request, 'inventario.html', context)

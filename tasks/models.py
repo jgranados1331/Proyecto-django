@@ -48,5 +48,4 @@ class Vehiculo(models.Model):
     Descripcion=models.CharField(max_length=1000, null=False)
 
     def __str__(self):
-        return self.nombre + self.categoria
-    
+        return self.nombre +'-'+ self.categoria.nombre
