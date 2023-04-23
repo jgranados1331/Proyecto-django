@@ -71,5 +71,5 @@ def grid(request):
     
 def inventario(request):
     inventario=Vehiculo.objects.all()
-    context = {'inventario':inventario}
-    return render(request, 'inventario.html', context)
+    datos = {'inventario':inventario}
+    return render(request, 'inventario.html', datos)

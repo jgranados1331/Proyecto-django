@@ -44,7 +44,7 @@ class Vehiculo(models.Model):
     caballos=models.CharField(max_length=15)
     motor=models.CharField(max_length=40)
     precio=models.CharField(max_length=15)
-    Imagen=models.ImageField(upload_to='posts/%Y/%m/%d', null=False)
+    Imagen=models.ImageField(upload_to='vehiculos', null=False)
     Descripcion=models.CharField(max_length=1000, null=False)
 
     def __str__(self):
