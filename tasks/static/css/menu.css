@@ -95,3 +95,35 @@
     }
   }
   
+
+  .profile{
+    position: fixed;
+    z-index: 1000000;
+    margin-left: 85%;
+    display: flex;
+    margin-top: 80px;
+    align-items: center;
+    border-radius: 35px;
+    background-color: rgba(255, 255, 255, 0.651);
+    -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    transition: 0.4s;
+  }
+
+  .profile:hover{
+    background-color: white;
+  }
+
+  .profile img{
+    width: 40px;
+    padding: 10px;
+  }
+
+  .welcome{
+    opacity: 0.5;
+    transition: 0.4s;
+  }
+
+  .profile:hover .welcome{
+    opacity: 1;
+  }

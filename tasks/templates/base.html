@@ -18,9 +18,6 @@
                 <a href="/">Inicio</a>
             </div>
             <div>
-                <a href="#">Perfil</a>
-            </div>
-            <div>
                 <a href="#">Servicios</a>
             </div>
             <div>
@@ -50,7 +47,14 @@
             {% endif %}
             
         </div>
+        {% if user.is_authenticated %}
+        <div class="profile">
+            <div class="welcome" style="padding:20px">Bienvenido <strong>{{user.username}}</strong></div>
+            <div><a href=""><img src="{% static 'images/usuario.png' %}" alt=""></a></div>
+        </div>
+        {% endif %}
     </nav>
+
     
     {% block content %}
     {% endblock %}
