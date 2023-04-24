@@ -16,16 +16,21 @@
       <div class="conteiner-inventario">
         <div class="menu-right">
           <div class="menu-title">Menu</div>
-          <div class="options">Categorias</div>
           <div class="options">Sub-categorias</div>
+          <form method="POST" action="">
+            {% csrf_token %}
+            <button type="submit" name="my_button" value="1">Mi botón</button>
+          </form>
         </div>
         <div class="inventario">
         {% for inventario in inventario %}
+        {% if inventario.categoria_id %}
         <div class="section-item">
           <div class="item-image"><img src="../media/{{ inventario.Imagen }}" alt="{{ inventario.Imagen }}"></div>
-          <div class="item-name">{{ inventario.nombre }}</div>
+          <div class="item-name">{{ inventario.nombre}}</div>
           <div class="item-price">{{ inventario.precio }}</div>
         </div>
+        {% endif %}
         {% endfor %}
       </div>
     </div>

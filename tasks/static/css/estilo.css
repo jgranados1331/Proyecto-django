@@ -62,7 +62,7 @@
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: absolute;
 }
 
 .form{
@@ -92,7 +92,7 @@ font-size: 20px;
 .cont_form{
   display: flex;
   justify-content: center;
-  height: 800px;
+  height: 100%;
   align-items: center;
   background-color: #000000ab;
   width: 100%;

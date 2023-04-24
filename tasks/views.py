@@ -70,6 +70,8 @@ def grid(request):
         return render(request, 'home.html')
     
 def inventario(request):
-    inventario=Vehiculo.objects.all()
+    if request.method == 'POST':
+        my_button_value = request.POST.get('my_button')
+    inventario=Vehiculo.objects.values()
     datos = {'inventario':inventario}
     return render(request, 'inventario.html', datos)
