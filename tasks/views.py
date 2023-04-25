@@ -69,9 +69,19 @@ def grid(request):
     else:
         return render(request, 'home.html')
     
-def inventario(request):
-    if request.method == 'POST':
-        my_button_value = request.POST.get('my_button')
+def inventario(request,categoria=None):
     inventario=Vehiculo.objects.values()
+    if request.method == 'POST':
+        categoria = request.POST.get('my_button')
+    if categoria:
+        inventario = inventario.filter(categoria=categoria)
     datos = {'inventario':inventario}
     return render(request, 'inventario.html', datos)
+
+"""def inventario(request, categoria=None):
+    inventario=Vehiculo.objects.all
+    print(inventario)
+    if categoria:
+        inventario = inventario.filter(categoria=categoria)
+    datos = {'inventario':inventario}
+    return render(request, 'inventario.html', datos)"""
