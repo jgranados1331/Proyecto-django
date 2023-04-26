@@ -13,28 +13,33 @@
 </head>
 <body>
     <div class="conteiner-all-inventario">
-      <div class="conteiner-inventario">
-        <div class="menu-right">
-          <div class="menu-title">Menu</div>
-          <div class="options">Sub-categorias</div>
-          <form method="POST" action="">
-            {% csrf_token %}
-            <button type="submit" name="my_button" value="1">Carro</button>
-            <button type="submit" name="my_button" value="2">Moto</button>
-            <button type="submit" name="my_button" value="3">Camioneta</button>
-            <button type="submit" name="my_button" value="">Todos</button>
-          </form>
+      <div class="conteiner-invflex">
+        <div class="conteiner-inventario">
+          <div class="menu-right">
+            <div class="menu-title">Inventario</div>
+            <div class="options">Categorias</div>
+            <form method="POST" action="">
+              {% csrf_token %}
+              <div class="conteiner-buttons">
+                <div><button type="submit" name="my_button" value="1"><img src="{% static 'images/carro.jpg' %}" alt=""></button></div>
+                <div><button type="submit" name="my_button" value="2"><img src="{% static 'images/moto.jpg' %}" alt=""></button></div>
+                <div><button type="submit" name="my_button" value="3"><img src="{% static 'images/suv.jpg' %}" alt=""></button></div>
+                <div class="button-all"><button type="submit" name="my_button" value="">Todos</button></div>
+              </div>
+            </form>
+          </div>
+          <div class="inventario">
+          {% for inventario in inventario %}
+          {% if inventario.categoria_id %}
+          <div class="section-item">
+            <div class="item-image"><img src="../media/{{ inventario.Imagen }}" alt="{{ inventario.Imagen }}"></div>
+            <div class="item-name">{{ inventario.nombre}}</div>
+            <div class="item-price">{{ inventario.precio }}</div>
+            <div class="button-go"><button>Llevar</button></div>
+          </div>
+          {% endif %}
+          {% endfor %}
         </div>
-        <div class="inventario">
-        {% for inventario in inventario %}
-        {% if inventario.categoria_id %}
-        <div class="section-item">
-          <div class="item-image"><img src="../media/{{ inventario.Imagen }}" alt="{{ inventario.Imagen }}"></div>
-          <div class="item-name">{{ inventario.nombre}}</div>
-          <div class="item-price">{{ inventario.precio }}</div>
-        </div>
-        {% endif %}
-        {% endfor %}
       </div>
     </div>
 </body>
