@@ -49,3 +49,18 @@ class Vehiculo(models.Model):
 
     def __str__(self):
         return self.nombre +'-'+ self.categoria.nombre
+    
+class Profile(models.Model):
+    Imagen=models.ImageField(upload_to='users-profile', null=False)
+    nombre=models.CharField(max_length=30, null=False)
+    apellido=models.CharField(max_length=30, null=False)
+    fecha_nacimiento=models.DateField(null=False)
+    edad=models.CharField(max_length=2,null=False)
+    celular=models.IntegerField(null=False)
+    cc_passport=models.IntegerField(null=False)
+    pais=models.CharField(max_length=30,null=False)
+    ciudad=models.CharField(max_length=30,null=False)
+    domicilio=models.CharField(max_length=50,null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.nombre + '-' + User.username

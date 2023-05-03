@@ -61,13 +61,7 @@ def choose(request):
         if request.user.is_authenticated:
             return render(request, 'choose-section.html')
         else:
-            return render(request, 'home.html')
-        
-def grid(request):
-    if request.user.is_authenticated:
-        return render(request, 'grid-store.html')
-    else:
-        return render(request, 'home.html')
+            return render(request, 'home.html')  
     
 def inventario(request,categoria=None):
     inventario=Vehiculo.objects.values()
@@ -78,10 +72,5 @@ def inventario(request,categoria=None):
     datos = {'inventario':inventario}
     return render(request, 'inventario.html', datos)
 
-"""def inventario(request, categoria=None):
-    inventario=Vehiculo.objects.all
-    print(inventario)
-    if categoria:
-        inventario = inventario.filter(categoria=categoria)
-    datos = {'inventario':inventario}
-    return render(request, 'inventario.html', datos)"""
+def profile(request):
+    return render(request,'Profile.html')
