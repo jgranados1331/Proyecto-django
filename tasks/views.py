@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from .models import Vehiculo
+from .forms import Profile
 
 # Create your views here.
 
@@ -73,4 +74,6 @@ def inventario(request,categoria=None):
     return render(request, 'inventario.html', datos)
 
 def profile(request):
-    return render(request,'Profile.html')
+    return render(request,'Profile.html',{
+        'form': Profile
+    })
