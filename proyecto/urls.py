@@ -29,7 +29,7 @@ urlpatterns = [
     path('signin/', views.signin, name='signin'),
     path('choose/', views.choose, name='choose'),
     path('inventario/', views.inventario, name='inventario'),
-    path('profile', views.profile, name='profile')
+    path('profile/', views.profile, name='profile')
 ]   
 
 if settings.DEBUG:

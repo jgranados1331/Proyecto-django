@@ -640,8 +640,49 @@ font-size: 20px;
   background-color: crimson;
 }
 
+/*Profile*/
 
+.body-profile{
+  background-color: #000123;
+}
 
+.conteiner-profile-all{
+  height: 100%;
+}
 
+.conteiner-profile-form{
+  display: flex;
+}
 
+.conteiner-profile-form form{
+  display: flex ;
+  flex-direction: column;
+  color: white;
+  font-weight: 700;
+  font-size: 19px;
+  align-items: flex-end;
+}
 
+.conteiner-profile-form form p{
+  display: flex;
+  margin: 18px;
+  align-items: center;
+}
+
+.conteiner-profile-form form label{
+  margin-right: 30px;
+}
+
+.conteiner-profile-form form input{
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.conteiner-profile-info{
+  height: 30%;
+  background-color: aqua;
+}
+
+.conteiner-int-profile{
+  height: 50%;
+}

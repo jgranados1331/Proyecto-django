@@ -3,8 +3,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-from .models import Vehiculo
-from .forms import Profile
+from .models import Vehiculo,Profile
+from .forms import Profile_form
 
 # Create your views here.
 
@@ -62,7 +62,7 @@ def choose(request):
         if request.user.is_authenticated:
             return render(request, 'choose-section.html')
         else:
-            return render(request, 'home.html')  
+            return redirect(request, 'home.html')  
     
 def inventario(request,categoria=None):
     inventario=Vehiculo.objects.values()
@@ -74,6 +74,12 @@ def inventario(request,categoria=None):
     return render(request, 'inventario.html', datos)
 
 def profile(request):
-    return render(request,'Profile.html',{
-        'form': Profile
-    })
+    if request.user.is_authenticated:
+        profiles=Profile.objects.values()
+        datos_profile = {'profiles': profiles}
+        return render(request,'Profile.html', datos_profile,{
+            'form': Profile_form
+        })
+    else:
+            return redirect(request, 'home.html')
+    

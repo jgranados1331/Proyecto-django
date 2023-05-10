@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from .models import Profile
 
-class Profile(ModelForm):
+class Profile_form(ModelForm):
     class Meta:
         model = Profile
         fields = [

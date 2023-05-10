@@ -12,12 +12,26 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
-<body>
-    <form action="#" method="POST">
-
-        {{form}}
-
-    </form>
+<body class="body-profile">
+    <div class="conteiner-profile-all">
+        <div class="conteiner-profile-info">
+            {% for profiles in profiles %}
+            {% if profiles.user_id == user.id %}
+            <div class="conteiner-int-profile">
+                <div class="foto-profile"></div>
+                <div class="names-info"></div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="conteiner-profile-form">
+            <form action="#" method="POST">
+    
+                {{form.as_p}}
+        
+            </form>
+        </div>
+    </div>
 </body>
 </html>
 
