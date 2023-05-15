@@ -679,10 +679,58 @@ font-size: 20px;
 }
 
 .conteiner-profile-info{
-  height: 30%;
-  background-color: aqua;
+  margin-top: 100px;
+  padding: 100px;
+  display: flex;
 }
 
 .conteiner-int-profile{
   height: 50%;
+}
+
+.conteiner-profile-info img{
+  width: 300px;
+  border-radius: 150px;
+  height: 300px;
+  border:7px solid orange
+}
+
+.conteiner-int-profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.names-info{
+  font-weight: 700;
+  color: orange;
+  padding: 25px;
+  font-size: 30px;
+}
+
+
+.infor-profile{
+  color: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.infor-profile .names{
+  font-weight: 700;
+  font-size: 28px;
+  color: white;
+  padding: 20px;
+}
+
+.infor-profile .title{
+  font-size: 23px;
+  font-weight: 700;
+  color: #ef0631;
+  margin-bottom: 10px;
+}
+
+.info{
+  margin: 10px;
 }

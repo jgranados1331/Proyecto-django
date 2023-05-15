@@ -63,4 +63,4 @@ class Profile(models.Model):
     domicilio=models.CharField(max_length=50,null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
-        return self.nombre + '-' + User.username
+        return self.nombre + '-' + self.user.username

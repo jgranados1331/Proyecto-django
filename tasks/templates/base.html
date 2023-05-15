@@ -50,7 +50,7 @@
         {% if user.is_authenticated %}
         <div class="profile">
             <div class="welcome" style="padding:20px">Bienvenido <strong>{{user.username}}</strong></div>
-            <div><a href=""><img src="{% static 'images/usuario.png' %}" alt=""></a></div>
+            <div><a href="/profile"><img src="{% static 'images/usuario.png' %}" alt=""></a></div>
         </div>
         {% endif %}
     </nav>

@@ -16,10 +16,28 @@
     <div class="conteiner-profile-all">
         <div class="conteiner-profile-info">
             {% for profiles in profiles %}
-            {% if profiles.user_id == user.id %}
+            {% if profiles.user_id %}
             <div class="conteiner-int-profile">
-                <div class="foto-profile"></div>
-                <div class="names-info"></div>
+                <div class="foto-profile"><img src="../media/{{ profiles.Imagen }}" alt="{{ profiles.Imagen }}"></div>
+                <div class="names-info">@{{ user.username }}</div>
+            </div>
+            <div class="infor-profile">
+                <div class="names">
+                    <div>{{ profiles.nombre }} {{ profiles.apellido }}</div>
+                </div>
+                <div class="infor-per">
+                    <div class="celu">
+                        <div style="margin: 10px;"><p class="title">Celular:</p><p>{{ profiles.celular }}</p></div>
+                    <div style="margin: 10px;"><p class="title">Pais:</p><p>{{ profiles.pais }}</p></div>
+                    <div style="margin: 10px;"><p class="title">Ciudad:</p><p>{{ profiles.ciudad }}</p></div>
+                    </div>
+                    
+                <div class="passport">
+                <div class="passport">
+                    <div style="margin: 10px;"><p class="title">Celular:</p><p>{{ profiles.celular }}</p></div>
+                    <div style="margin: 10px;"><p class="title">Pais:</p><p>{{ profiles.pais }}</p></div>
+                </div>
+                </div>
             </div>
             {% endif %}
             {% endfor %}

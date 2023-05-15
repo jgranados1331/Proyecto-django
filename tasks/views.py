@@ -76,10 +76,16 @@ def inventario(request,categoria=None):
 def profile(request):
     if request.user.is_authenticated:
         profiles=Profile.objects.values()
-        datos_profile = {'profiles': profiles}
-        return render(request,'Profile.html', datos_profile,{
-            'form': Profile_form
-        })
+        id_profile=request.user.id
+        profiles_p=profiles.filter(user_id=id_profile)
+        datos = {'profiles': profiles_p}
+        print(datos)
+        formulario={
+            'form': Profile_form}
+        if profiles_p.exists():
+            return render(request,'Profile.html',datos)
+        else:
+            return render(request,'Profile.html',formulario)
     else:
-            return redirect(request, 'home.html')
+        return redirect(request, 'home.html')
     
