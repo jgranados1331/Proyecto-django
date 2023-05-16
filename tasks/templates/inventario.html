@@ -35,6 +35,7 @@
             <div class="item-image"><img src="../media/{{ inventario.Imagen }}" alt="{{ inventario.Imagen }}"></div>
             <div class="item-name">{{ inventario.nombre}}</div>
             <div class="item-price">{{ inventario.precio }}</div>
+            <div class="item-price">{{ inventario.slug }}</div>
             <div class="button-go-detalles"><a href="{% url 'detalle' inventario.slug %}"><button> Detalles</button></a></div>
             <div class="button-go"><button>Llevar</button></div>
           </div>
