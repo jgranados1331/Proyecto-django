@@ -68,6 +68,7 @@ def inventario(request,categoria=None):
     inventario=Vehiculo.objects.values()
     if request.method == 'POST':
         categoria = request.POST.get('my_button')
+        print(categoria)
     if categoria:
         inventario = inventario.filter(categoria=categoria)
     datos = {'inventario':inventario}
@@ -88,4 +89,14 @@ def profile(request):
             return render(request,'Profile.html',formulario)
     else:
         return redirect(request, 'home.html')
+    
+def detalle(request,slug):
+        if request.user.is_authenticated:
+            if Vehiculo.objects.filter(slug=slug).exists():
+                vehiculo=Vehiculo.objects.get(slug=slug)
+                print(slug)
+                context = {"Vehiculo":vehiculo}
+                return render(request, 'detalle.html', context)
+        else:
+            return redirect(request, 'home.html')  
     

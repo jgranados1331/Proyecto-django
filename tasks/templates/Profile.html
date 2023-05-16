@@ -31,12 +31,19 @@
                     <div style="margin: 10px;"><p class="title">Pais:</p><p>{{ profiles.pais }}</p></div>
                     <div style="margin: 10px;"><p class="title">Ciudad:</p><p>{{ profiles.ciudad }}</p></div>
                     </div>
-                    
+   
                 <div class="passport">
-                <div class="passport">
-                    <div style="margin: 10px;"><p class="title">Celular:</p><p>{{ profiles.celular }}</p></div>
-                    <div style="margin: 10px;"><p class="title">Pais:</p><p>{{ profiles.pais }}</p></div>
+                    <div style="margin: 10px;"><p class="title">Cedula:</p><p>{{ profiles.cc_passport }}</p></div>
+                    <div style="margin: 10px;"><p class="title">Edad:</p><p>{{ profiles.edad }}</p></div>
+                    <div style="margin: 10px;"><p class="title">Domicilio:</p><p>{{ profiles.domicilio }}</p></div>
                 </div>
+
+                <div class="passport">
+                    <div style="margin: 10px;"><p class="title">Fecha de nacimiento</p><p>{{ profiles.fecha_nacimiento }}</p></div>
+                    <div style="margin: 10px;"><p class="title">Id:</p><p>{{ profiles.user_id }}</p></div>
+                </div>
+                <div class="button-edit">
+                    <div style="margin: 10px;"><button>Editar <img src="{% static 'images/editar.png' %}" alt=""></button></div>
                 </div>
             </div>
             {% endif %}
