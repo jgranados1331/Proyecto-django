@@ -68,7 +68,6 @@ def inventario(request,categoria=None):
     inventario=Vehiculo.objects.values()
     if request.method == 'POST':
         categoria = request.POST.get('my_button')
-        print(categoria)
     if categoria:
         inventario = inventario.filter(categoria=categoria)
     datos = {'inventario':inventario}
@@ -80,7 +79,6 @@ def profile(request):
         id_profile=request.user.id
         profiles_p=profiles.filter(user_id=id_profile)
         datos = {'profiles': profiles_p}
-        print(datos)
         formulario={
             'form': Profile_form}
         if profiles_p.exists():
@@ -94,9 +92,25 @@ def detalle(request,slug):
         if request.user.is_authenticated:
             if Vehiculo.objects.filter(slug=slug).exists():
                 vehiculo=Vehiculo.objects.get(slug=slug)
-                print(slug)
                 context = {"Vehiculo":vehiculo}
                 return render(request, 'detalle.html', context)
         else:
            return redirect('Home')   
+
+def cart(request,slug):
+    if request.user.is_authenticated:
+            vehiculo=Vehiculo.objects.get(slug=slug)
+            initial= {"items":[], "price":0.0, "count":0}
+            session=request.session.get("data",initial)
+            if slug in session["items"]:
+                message.error(request,"Producto ya existe en el carrito")
+            else:
+                session["items"].append(slug)
+                session["price"]+= vehiculo.precio
+                session["count"]+= 1
+                request.session["data"]=session
+                message.succes(request,"Agregado con exito")
+            return redirect("detalle",slug)
+    else:
+        return redirect('Home')  
     
