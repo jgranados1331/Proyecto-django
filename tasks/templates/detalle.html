@@ -14,20 +14,22 @@
 <body class="detalle-body">
     <div class="conteiner-detalle">
         <div class="foto">
+            <div><a href="/inventario"><img src="{% static 'images/flecha-izquierda.png' %}" alt="" style="width: 60px;"></a></div>
             <div class="foto-vehicle">
                 <div><img src="../media/{{ Vehiculo.Imagen }}" alt="{{ Vehiculo.Imagen }}"></div>
             </div>
-            <div class="Nombre-detalle">{{ Vehiculo.nombre }}</div>
-            <div class="Nombre-detalle">{{ Vehiculo.precio }}</div>
-            <div class="Nombre-detalle">{{ Vehiculo.subcategoria }}</div>
+            <div class="Nombre-detalle" style="font-size: 39px; font-weight: 700; margin-bottom: 20px;">{{ Vehiculo.nombre }}</div>
+            <div class="Nombre-detalle" style="font-size: 28px; margin-bottom: 20px; color: green;">${{ Vehiculo.precio }}</div>
+            <div class="Nombre-detalle" style="font-size: 28px; margin-bottom: 20px;">{{ Vehiculo.marca }}</div>
             <div class="button-go"><button>Llevar</button></div>
         </div>
-        <div class="foto">
-            <div class="foto-vehicle">
-                <div><img src="../media/{{ Vehiculo.Imagen }}" alt="{{ Vehiculo.Imagen }}"></div>
+        <div class="descripcion-detalle" style="padding: 80px;">
+            <div style="color: orange; margin: 20px; font-size: 38px; font-weight: 700;"><p>Descripción</p></div>
+            <div class="Nombre-detalle" style="font-size: 22px; margin-bottom: 18px;">{{ Vehiculo.Descripcion }}</div>
+            <div class="especificaciones" style="display: flex; font-size: 19px; flex-direction: row; width: 100%; justify-content: space-around; ">
+                <div class="motor" style="display: flex; justify-content: center; align-items: center; width: 50%;"> <div><img src="{% static 'images/motor.png' %}" alt=""></div> <div><p>Motor: </p></div>  <div>{{ Vehiculo.motor }}</div></div>
+                <div class="caballos" style="display: flex;justify-content: center; align-items: center; width: 50%;"> <div><img src="{% static 'images/caballo-de-fuerza.png' %}" alt=""></div> <div><p>Caballos: </p></div> <div>{{ Vehiculo.caballos }}</div> </div>
             </div>
-            <div class="Nombre-detalle">{{ Vehiculo.nombre }}</div>
-            <div class="button-go"><button>Llevar</button></div>
         </div>
     </div>
 </body>

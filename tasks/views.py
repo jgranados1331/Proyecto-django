@@ -62,7 +62,7 @@ def choose(request):
         if request.user.is_authenticated:
             return render(request, 'choose-section.html')
         else:
-            return redirect(request, 'home.html')  
+            return redirect('Home')  
     
 def inventario(request,categoria=None):
     inventario=Vehiculo.objects.values()
@@ -88,7 +88,7 @@ def profile(request):
         else:
             return render(request,'Profile.html',formulario)
     else:
-        return redirect(request, 'home.html')
+        return redirect('Home')  
     
 def detalle(request,slug):
         if request.user.is_authenticated:
@@ -98,5 +98,5 @@ def detalle(request,slug):
                 context = {"Vehiculo":vehiculo}
                 return render(request, 'detalle.html', context)
         else:
-            return redirect(request, 'home.html')  
+           return redirect('Home')   
     
