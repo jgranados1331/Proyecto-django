@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        {% for Vehiculo in vehiculos %}
+          <div class="section-item">
+            <div class="item-image"><img src="../media/{{ Vehiculo.Imagen }}" alt="{{ Vehiculo.Imagen }}"></div>
+            <div class="item-name">{{ Vehiculo.nombre}}</div>
+            <div class="item-price">$ {{ Vehiculo.precio }}/día</div>
+        {% endfor %}
+</body>
+</html>
+{% endblock %}

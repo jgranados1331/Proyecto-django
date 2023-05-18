@@ -44,7 +44,7 @@ class Vehiculo(models.Model):
     subcategoria=models.ForeignKey(subcategoria, on_delete=models.CASCADE)
     caballos=models.CharField(max_length=15)
     motor=models.CharField(max_length=40)
-    precio=models.IntegerField(null=False)
+    precio=models.IntegerField()
     Imagen=models.ImageField(upload_to='vehiculos', null=False)
     Descripcion=models.CharField(max_length=1000, null=False)
     slug=AutoSlugField(populate_from='nombre')

@@ -103,14 +103,21 @@ def cart(request,slug):
             initial= {"items":[], "price":0.0, "count":0}
             session=request.session.get("data",initial)
             if slug in session["items"]:
-                message.error(request,"Producto ya existe en el carrito")
+                return(request,{'error':'Producto ya existe en el carrito'})
             else:
                 session["items"].append(slug)
-                session["price"]+= vehiculo.precio
+                session["price"]+= float(vehiculo.precio)
                 session["count"]+= 1
                 request.session["data"]=session
-                message.succes(request,"Agregado con exito")
+
             return redirect("detalle",slug)
     else:
         return redirect('Home')  
     
+def mycart(request):
+    sess=request.session.get("data",{"items":[]})
+    print(sess)
+    products=Vehiculo.objects.filter(slug__in=sess["items"])
+    print(products)
+    context= {"vehiculos":products}
+    return render(request,'mycart.html',context)

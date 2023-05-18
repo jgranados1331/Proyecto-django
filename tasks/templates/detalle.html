@@ -21,7 +21,7 @@
             <div class="Nombre-detalle" style="font-size: 39px; font-weight: 700; margin-bottom: 20px;">{{ Vehiculo.nombre }}</div>
             <div class="Nombre-detalle" style="font-size: 28px; margin-bottom: 20px; color: green;">${{ Vehiculo.precio }} /día</div>
             <div class="Nombre-detalle" style="font-size: 28px; margin-bottom: 20px;">{{ Vehiculo.marca }}</div>
-            <div class="button-go"><button>Llevar</button></div>
+            <div class="button-go"><a href="{% url 'cart' Vehiculo.slug %}"><button>Llevar</button></a></div>
         </div>
         <div class="descripcion-detalle" style="padding: 80px;">
             <div style="color: orange; margin: 20px; font-size: 38px; font-weight: 700;"><p>Descripción</p></div>

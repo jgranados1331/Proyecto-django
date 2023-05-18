@@ -30,7 +30,9 @@ urlpatterns = [
     path('choose/', views.choose, name='choose'),
     path('inventario/', views.inventario, name='inventario'),
     path('profile/', views.profile, name='profile'),
-    path('detalle/<slug>', views.detalle, name='detalle')
+    path('detalle/<slug>', views.detalle, name='detalle'),
+    path('<slug>/cart', views.cart, name='cart'),
+    path('mycart/', views.mycart, name='mycart')
 ]   
 
 if settings.DEBUG:
