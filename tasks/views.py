@@ -3,8 +3,10 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-from .models import Vehiculo,Profile
+from .models import Vehiculo,Profile,Order,OrderDetail
 from .forms import Profile_form
+import json
+import random
 
 # Create your views here.
 
@@ -115,9 +117,36 @@ def cart(request,slug):
         return redirect('Home')  
     
 def mycart(request):
+    request.session["paypal"]=False
     sess=request.session.get("data",{"items":[]})
     print(sess)
     products=Vehiculo.objects.filter(slug__in=sess["items"])
+    total = sess["price"]
     print(products)
-    context= {"vehiculos":products}
+    context= {"vehiculos":products,"total":total}
     return render(request,'mycart.html',context)
+def simple_checkout(request):
+    template_name='simple_checkout.html'
+    return render(request,template_name)
+
+def paymentComplete(request):
+    body=json.loads(request.body)
+    sess=request.session.get("data",{"items":[]})
+    productoscart=sess["items"]
+    Oc=Order()
+    Oc.customer=body['customer']
+    Oc.ordernum=random.randint(1000,99999)
+    Oc.save()
+    for item in productoscart:
+        prod=Vehiculo.objects.get(slug=item)
+        Od=OrderDetail()
+        Od.product=prod
+        Od.cant=1
+        Od.order=Oc
+        Od.save()
+    del request.session['data']
+    return redirect('sucess')
+
+def sucess(request):
+    template_name='sucess.html'
+    return render(request,template_name)

@@ -1,0 +1,16 @@
+{% load static %}
+{% include 'base.html' %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/estilo.css' %}">
+
+<body>
+    <div class="popup-wrapoer">
+        <div class="popup">
+            <div class="popoup-close">
+                <div class="popup-content">
+                    <h3>Gracias por su compra!</h3>
+                    <a href="{% url 'Home' %}">Inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

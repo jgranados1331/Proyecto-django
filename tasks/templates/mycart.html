@@ -8,14 +8,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
-<body>
-        {% for Vehiculo in vehiculos %}
-          <div class="section-item">
-            <div class="item-image"><img src="../media/{{ Vehiculo.Imagen }}" alt="{{ Vehiculo.Imagen }}"></div>
-            <div class="item-name">{{ Vehiculo.nombre}}</div>
-            <div class="item-price">$ {{ Vehiculo.precio }}/día</div>
+<body class="body-store">
+  <div class="tienda-grid">
+    <div style="font-size: 65px; font-weight: 700; color:white; padding: 20px;"><p>Tu carrito</p></div>
+    {% for Vehiculo in vehiculos %}
+          <div class="section-item-tienda">
+            <div class="item-image-t"><img src="../media/{{ Vehiculo.Imagen }}" alt="{{ Vehiculo.Imagen }}"></div>
+            <div class="item-name-t">{{ Vehiculo.nombre}}</div>
+            <div class="item-price-t">$ {{ Vehiculo.precio }}/día</div>
+          </div>
         {% endfor %}
+        {% if request.session.paypal == False %}
+      <div id="paypal-button-container"></div>
+      {% endif %}
+  </div>
+  <script src="https://www.paypal.com/sdk/js?client-id=AXn5P5GJtL8DGVAP0pF8PSShpLaoKGkDJ3gsYhjT2izqReHiqZekfvXbt_E_jPIFnm2gY_vyh9CbUD0Z&currency=USD&components=buttons"></script>
+  <script>
+    function getCookie(name){
+      var cookieValue=null;
+      if(document.cookie && document.cookie !== ''){
+        var cookies = document.cookie.split(';');
+        for(var i = 0;i < cookies.length;i++){
+          var cookie = cookies[i].trim();
+          if(cookie.substring(0,name.length+1)===(name + '=')){
+            cookieValue = decodeURIComponent(cookie.substring(name.length+1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    var csrftoken=getCookie('csrftoken');
+    
+  var total= '{{ total }}'
+
+  function completeOrder(){
+    var url="{% url 'complete' %}"
+      fetch(url,{
+        method:'POST',
+        headers:{
+          'Content-type':'application/json',
+          'x-CSRFToken':csrftoken,
+        },
+
+        body:JSON.stringify({'customer': sessionStorage.getItem('customer')})
+      })
+      
+  }
+
+  paypal.Buttons({
+    style:{
+      layout: 'vertical',
+      color:  'blue',
+      shape:  'rect',
+      label:  'paypal'
+    },
+
+    createOrder: function(data,actions){
+      return actions.order.create({
+        purchase_units:[{
+          amount:{
+            value: total
+          }
+        }]
+      });
+    },
+
+    onApprove: function(data,actions){
+      return actions.order.capture().then(function(details){
+        sessionStorage.setItem('customer',details.payer.name.given_name);
+        completeOrder()
+        sessionStorage.clear();
+        var url = "{% url 'sucess' %}"
+
+        window.location=url;
+      });
+    }
+  }).render('#paypal-button-container');
+  </script>
 </body>
 </html>
 {% endblock %}

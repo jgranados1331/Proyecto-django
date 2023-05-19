@@ -32,7 +32,10 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('detalle/<slug>', views.detalle, name='detalle'),
     path('<slug>/cart', views.cart, name='cart'),
-    path('mycart/', views.mycart, name='mycart')
+    path('mycart/', views.mycart, name='mycart'),
+    path('simple_checkout/',views.simple_checkout,name='simple_checkout'),
+    path('sucess/',views.sucess,name='sucess'),
+    path('complete/',views.paymentComplete,name='complete')
 ]   
 
 if settings.DEBUG:

@@ -66,3 +66,22 @@ class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.nombre + '-' + self.user.username
+    
+class Order(models.Model):
+    ordernum=models.CharField(max_length=9,null=True,blank=True)
+    customer=models.CharField(max_length=200,null=True,blank=True)
+    created=models.DateTimeField(auto_now_add=True)
+    status=models.BooleanField(default=True)
+    
+    def __str__(self) -> str:
+        return self.ordernum
+    
+class OrderDetail(models.Model):
+    product=models.ForeignKey(Vehiculo,on_delete=models.CASCADE)
+    cant=models.IntegerField(default=1)
+    order=models.ForeignKey(Order,on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.product.nombre
+    
+    

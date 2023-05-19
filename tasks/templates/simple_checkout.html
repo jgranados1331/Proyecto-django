@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="paypal-button-container"></div>
+    <script src="https://www.paypal.com/sdk/js?client-id=EAHGDWLyRrqsYFBwnAnbY241kemJSCIBI7koLa8bMzL_3SjuYNASi7ar54SMwH_vabnVcD8zZR1S0z6v&currency=USD&components=buttons"></script>
+    {% csrf_token %}
+    <script>
+  paypal.Buttons({
+    style:{
+      layout: 'vertical',
+      color:  'blue',
+      shape:  'rect',
+      label:  'paypal'
+    },
+
+    createOrder: function(data,actions){
+      return actions.order.create({
+        purchase_units:[{
+          amount:{
+            valure: total
+          }
+        }]
+      });
+    },
+
+    onApprove: function(data,actions){
+      return actions.order.capture().then(function(details){
+        sessionStorage.setItem('customer',details.payer.name.given_name);
+        completeOrder()
+        sessionStorage.clear();
+        var url = "{% url 'sucess' %}"
+
+        window.location=url;
+      });
+    }
+  }).render('#paypal-button-container');
+  </script>
+    </script>
+</body>
+</html>

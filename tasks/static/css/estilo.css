@@ -1005,3 +1005,72 @@ background-size: cover;
   -webkit-animation: slide-in-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	  animation: slide-in-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+
+/*Tienda*/
+
+.body-store{
+  background-color: #CC0000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg %3E%3Crect fill='%23CC0000' width='11' height='11'/%3E%3Crect fill='%23ce0007' x='10' width='11' height='11'/%3E%3Crect fill='%23d0000e' y='10' width='11' height='11'/%3E%3Crect fill='%23d20014' x='20' width='11' height='11'/%3E%3Crect fill='%23d40019' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%23d6001e' y='20' width='11' height='11'/%3E%3Crect fill='%23d80023' x='30' width='11' height='11'/%3E%3Crect fill='%23da0027' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%23dc002c' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%23dd0030' y='30' width='11' height='11'/%3E%3Crect fill='%23df0034' x='40' width='11' height='11'/%3E%3Crect fill='%23e00038' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%23e2003c' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%23e30041' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%23e40045' y='40' width='11' height='11'/%3E%3Crect fill='%23e50049' x='50' width='11' height='11'/%3E%3Crect fill='%23e6004d' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%23e70051' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%23e80055' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%23e80059' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%23e9005d' y='50' width='11' height='11'/%3E%3Crect fill='%23ea0061' x='60' width='11' height='11'/%3E%3Crect fill='%23ea0066' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%23ea006a' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%23ea006e' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%23eb0072' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%23eb0076' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%23eb007a' x='70' width='11' height='11'/%3E%3Crect fill='%23ea007e' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%23ea0082' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%23ea0087' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%23e9098b' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%23e9118f' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%23e81893' x='80' width='11' height='11'/%3E%3Crect fill='%23e71d97' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%23e6229b' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%23e5279f' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%23e42ba3' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%23e32fa7' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%23e233ab' x='90' width='11' height='11'/%3E%3Crect fill='%23e037ae' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%23df3ab2' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%23dd3eb6' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23dc41ba' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23da44bd' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23d848c1' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23d64bc5' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23d44ec8' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23d151cc' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23cf54cf' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23cd57d2' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23ca5ad6' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23c85cd9' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23c55fdc' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23c262df' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23bf65e2' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23bc67e5' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23b96ae8' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23b56ceb' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23B26FEE' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+}
+
+.tienda-grid{
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}
+
+.tienda-grid .section-item-tienda{
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+  background: #f3f3f3af;
+  border-radius: 50px;
+  margin: 20px;
+  font-size: 50px;
+}
+
+.tienda-grid img{
+  width: 500px;
+  height: auto;
+  border-right: 2px solid rgb(255, 255, 255);
+}
+
+.section-item-tienda .item-name-t{
+  height: 100%;
+  color: rgb(170, 111, 0);
+}
+
+.section-item-tienda .item-price-t{
+  color: green;
+}
+
+.tienda-grid button{
+  width: 100%;
+  padding: 20px;
+  font-size: 25px;
+  border-radius: 40px;
+  background-color: orange;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  transition: .8s;
+  border: 0px;
+}
+
+.tienda-grid button:hover{
+  background-color: crimson;
+  color: white;
+}
+
+.tienda-grid .button-pay{
+  width: 40%;
+  padding: 20px;
+  margin-top:30px;
+  
+}
