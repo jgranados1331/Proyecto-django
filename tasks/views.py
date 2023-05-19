@@ -77,16 +77,23 @@ def inventario(request,categoria=None):
 
 def profile(request):
     if request.user.is_authenticated:
-        profiles=Profile.objects.values()
-        id_profile=request.user.id
-        profiles_p=profiles.filter(user_id=id_profile)
-        datos = {'profiles': profiles_p}
-        formulario={
-            'form': Profile_form}
-        if profiles_p.exists():
-            return render(request,'Profile.html',datos)
+        if request.method == 'POST':
+            current_user = request.user
+            print(current_user)
+            profile = Profile.objects.create(Imagen="users-profile/"+request.POST['Imagen'],nombre=request.POST['nombre'],apellido=request.POST['apellido'],fecha_nacimiento=request.POST['fecha_nacimiento'],edad=request.POST['edad'],celular=request.POST['celular'],cc_passport=request.POST['cc_passport'],pais=request.POST['pais'],ciudad=request.POST['ciudad'],domicilio=request.POST['domicilio'],user=current_user)
+            profile.save()
+            return redirect('profile')
         else:
-            return render(request,'Profile.html',formulario)
+            profiles=Profile.objects.values()
+            id_profile=request.user.id
+            profiles_p=profiles.filter(user_id=id_profile)
+            datos = {'profiles': profiles_p}
+            if profiles_p.exists():
+                return render(request,'Profile.html',datos)
+            else:
+                formulario={
+                'form': Profile_form}
+                return render(request,'Profile.html',formulario)
     else:
         return redirect('Home')  
     

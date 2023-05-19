@@ -50,10 +50,12 @@
             {% endfor %}
         </div>
         <div class="conteiner-profile-form">
-            <form action="#" method="POST">
-    
+            <form action="/profile/" method="POST">
                 {{form.as_p}}
+                {% if profiles == null %}
+                {% csrf_token %}
                 <div><button>Enviar</button></div>
+                {% endif %}
             </form>
         </div>
     </div>
